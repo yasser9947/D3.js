@@ -11,23 +11,23 @@ var svg = d3.select("#chart-area")
 data = [
 	{
 		"name": "Burj Khalifa",
-		"height": "350"
+		"height": "828"
 	},
 	{
 		"name": "Shanghai Tower",
-		"height": "263.34"
+		"height": "623.34"
 	},
 	{
 		"name": "Abraj Al-Bait Clock Tower",
-		"height": "254.04"
+		"height": "601.04"
 	},
 	{
 		"name": "Ping An Finance Centre",
-		"height": "253.20"
+		"height": "599.20"
 	},
 	{
 		"name": "Lotte World Tower",
-		"height": "230.16"
+		"height": "544.16"
 	}
 ]
 // d3.json("data/buildings.json",function(eror ,data) {
@@ -38,6 +38,9 @@ data.forEach(ele => {
 });
 console.log("hjy")
 // 
+var y = d3.scaleLinear()
+	.domain([0,828])
+	.range([0 ,400])
 var rects =svg.selectAll('rect')
     .data(data)
     .enter()
@@ -49,7 +52,7 @@ var rects =svg.selectAll('rect')
    
     .attr("width" ,40)
     .attr("height" , function(d){
-        return d.height
+        return y(d.height)
     })
     .attr("fill" , function(d){
         return "red"
