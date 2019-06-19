@@ -14,6 +14,7 @@ var svg = d3.select("#chart-area")
 	.append("svg")
 	.attr("width", width + margin.left + margin.right)
 	.attr("height", height + margin.top + margin.bottom)
+	
 data = [
 	{
 		"name": "Burj Khalifa",
@@ -48,7 +49,26 @@ var g = svg.append("g")
 // d3.json("data/buildings.json",function(eror ,data) {
 // alart(eror)
 
+// X lebale 
 
+g.append("text")
+	.attr('class' , "x axis-label")
+	.attr('x' ,width / 2)
+	.attr('y' , height + 100)
+	.attr("font-size" , "20px")
+	.attr("text-anchor" , "middle")
+	.text("yasser made this D3 ")
+
+
+// Y lebale
+g.append("text")
+	.attr('class' , "y axis-label")
+	.attr('x' ,-(height/2))
+	.attr('y' , -60)
+	.attr("font-size" , "20px")
+	.attr("text-anchor" , "middle")
+	.attr("transform","rotate(-90)")
+	.text("height ")
 console.log(data)
 data.forEach(ele => {
 	ele.height = +ele.height
